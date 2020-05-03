@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.sporniket.networking</groupId>
 		<artifactId>sporniket-networking</artifactId>
-		<version>20.05.00</version>
+		<version>20.05.01-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
