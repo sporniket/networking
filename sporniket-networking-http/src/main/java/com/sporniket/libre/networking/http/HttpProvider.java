@@ -49,12 +49,12 @@ public class HttpProvider
 	/**
 	 * The http client that will perform the requests.
 	 */
-	private HttpClient httpClient;
+	private HttpClient myHttpClient;
 
 	public HttpProvider(NetworkingConfiguration networkingConfiguration)
 	{
 		super();
-		httpClient = buildHttpBuilder(networkingConfiguration);
+		myHttpClient = buildHttpBuilder(networkingConfiguration);
 	}
 
 	/**
@@ -64,15 +64,15 @@ public class HttpProvider
 	 */
 	private HttpClient buildHttpBuilder(NetworkingConfiguration networkingConfiguration)
 	{
-		HttpClientBuilder builder = HttpClientBuilder.create();
-		builder.setConnectionManager(networkingConfiguration.getConnectionManager());
+		HttpClientBuilder _builder = HttpClientBuilder.create();
+		_builder.setConnectionManager(networkingConfiguration.getConnectionManager());
 
 		if (networkingConfiguration.isHttpProxyDefined())
 		{
-			final HttpHost proxy = networkingConfiguration.getHttpProxy();
-			builder.setProxy(proxy);
+			final HttpHost _proxy = networkingConfiguration.getHttpProxy();
+			_builder.setProxy(_proxy);
 		}
-		return builder.build();
+		return _builder.build();
 	}
 
 	/**
@@ -122,7 +122,7 @@ public class HttpProvider
 
 	private HttpClient getHttpClient()
 	{
-		return httpClient;
+		return myHttpClient;
 	}
 
 	/**
@@ -157,14 +157,14 @@ public class HttpProvider
 
 	private Executor prepareExecutor(HttpClient client, HttpProviderContext clientContext)
 	{
-		final Executor executor = Executor.newInstance(client);
+		final Executor _executor = Executor.newInstance(client);
 		if (null != clientContext && null != clientContext.getCredentials() && null != clientContext.getAuthenticatedHost())
 		{
-			executor//
+			_executor//
 					.auth(clientContext.getAuthenticatedHost(), clientContext.getCredentials())//
 					.authPreemptive(clientContext.getAuthenticatedHost())//
 			;
 		}
-		return executor;
+		return _executor;
 	}
 }

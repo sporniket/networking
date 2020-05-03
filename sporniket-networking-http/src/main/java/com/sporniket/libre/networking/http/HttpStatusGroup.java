@@ -48,16 +48,16 @@ public enum HttpStatusGroup
 		return ORDERED_BY_GROUP_VALUE[value - 1];
 	}
 
-	private final int groupValue;
+	private final int myGroupValue;
 
-	private HttpStatusGroup(int groupValue)
+	HttpStatusGroup(int groupValue)
 	{
-		this.groupValue = groupValue;
+		this.myGroupValue = groupValue;
 	}
 
 	public int getGroupValue()
 	{
-		return groupValue;
+		return myGroupValue;
 	}
 
 }

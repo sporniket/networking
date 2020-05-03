@@ -136,11 +136,11 @@ public class ResponseHandlerBuilder<ResponseType>
 	private static ResponseHandlingException createResponseHandlingException(final String message, Exception cause,
 			HttpEntity source)
 	{
-		Header[] headers =
+		Header[] _headers =
 		{
 				source.getContentEncoding(), source.getContentType()
 		};
-		final ResponseHandlingException _responseHandlingException = new ResponseHandlingException(message, cause, null, headers,
+		final ResponseHandlingException _responseHandlingException = new ResponseHandlingException(message, cause, null, _headers,
 				null);
 		return _responseHandlingException;
 	}
@@ -156,21 +156,21 @@ public class ResponseHandlerBuilder<ResponseType>
 		{
 			return null;
 		}
-		final String encoding = getCharset(entity);
-		try (InputStream is = entity.getContent(); BufferedReader ir = new BufferedReader(new InputStreamReader(is, encoding)))
+		final String _encoding = getCharset(entity);
+		try (InputStream _is = entity.getContent(); BufferedReader _ir = new BufferedReader(new InputStreamReader(_is, _encoding)))
 		{
-			StringBuilder b = new StringBuilder();
-			String line = ir.readLine();
-			while (null != line)
+			StringBuilder _b = new StringBuilder();
+			String _line = _ir.readLine();
+			while (null != _line)
 			{
-				if (b.length() > 0)
+				if (_b.length() > 0)
 				{
-					b.append('\n');
+					_b.append('\n');
 				}
-				b.append(line);
-				line = ir.readLine();
+				_b.append(_line);
+				_line = _ir.readLine();
 			}
-			return b.toString();
+			return _b.toString();
 		}
 		catch (IOException | UnsupportedOperationException _error)
 		{
@@ -212,9 +212,9 @@ public class ResponseHandlerBuilder<ResponseType>
 		}
 	}
 
-	private final Map<Integer, Handler<ResponseType>> handlersByStatusCode = new TreeMap<Integer, ResponseHandlerBuilder.Handler<ResponseType>>();
+	private final Map<Integer, Handler<ResponseType>> myHandlersByStatusCode = new TreeMap<Integer, ResponseHandlerBuilder.Handler<ResponseType>>();
 
-	private final Map<Integer, Handler<ResponseType>> handlersByStatusGroup = new TreeMap<Integer, ResponseHandlerBuilder.Handler<ResponseType>>();
+	private final Map<Integer, Handler<ResponseType>> myHandlersByStatusGroup = new TreeMap<Integer, ResponseHandlerBuilder.Handler<ResponseType>>();
 
 	/**
 	 * Define a default handler.
@@ -225,25 +225,25 @@ public class ResponseHandlerBuilder<ResponseType>
 
 	public ResponseHandler<ResponseType> done()
 	{
-		final Handler<ResponseType> handlerDefault = myDefaultHandler;
+		final Handler<ResponseType> _handlerDefault = myDefaultHandler;
 		return response -> {
-			final StatusLine statusLine = response.getStatusLine();
-			final Header[] headers = response.getAllHeaders();
-			final String body = getBody(response.getEntity());
+			final StatusLine _statusLine = response.getStatusLine();
+			final Header[] _headers = response.getAllHeaders();
+			final String _body = getBody(response.getEntity());
 
-			final int _statusCode = statusLine.getStatusCode();
-			if (handlersByStatusCode.containsKey(_statusCode))
+			final int _statusCode = _statusLine.getStatusCode();
+			if (myHandlersByStatusCode.containsKey(_statusCode))
 			{
-				return handlersByStatusCode.get(_statusCode).perform(body, headers, statusLine);
+				return myHandlersByStatusCode.get(_statusCode).perform(_body, _headers, _statusLine);
 			}
 
 			final int _statusGroup = _statusCode / 100;
-			if (handlersByStatusGroup.containsKey(_statusGroup))
+			if (myHandlersByStatusGroup.containsKey(_statusGroup))
 			{
-				return handlersByStatusGroup.get(_statusGroup).perform(body, headers, statusLine);
+				return myHandlersByStatusGroup.get(_statusGroup).perform(_body, _headers, _statusLine);
 			}
 
-			return handlerDefault.perform(body, headers, statusLine);
+			return _handlerDefault.perform(_body, _headers, _statusLine);
 		};
 	}
 
@@ -257,7 +257,7 @@ public class ResponseHandlerBuilder<ResponseType>
 	{
 		if (null != handler)
 		{
-			handlersByStatusCode.put(statusCode, handler);
+			myHandlersByStatusCode.put(statusCode, handler);
 		}
 		return this;
 	}
@@ -266,7 +266,7 @@ public class ResponseHandlerBuilder<ResponseType>
 	{
 		if (null != statusGroup && null != handler)
 		{
-			handlersByStatusGroup.put(statusGroup.getGroupValue(), handler);
+			myHandlersByStatusGroup.put(statusGroup.getGroupValue(), handler);
 		}
 		return this;
 	}

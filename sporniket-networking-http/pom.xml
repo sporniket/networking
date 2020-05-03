@@ -145,6 +145,51 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- === Static code analysis === -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<configuration>
+					<linkXref>true</linkXref>
+					<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+					<targetJdk>${version.jdk}</targetJdk>
+					<excludeRoots>
+						<excludeRoot>target/generated-classes</excludeRoot>
+					</excludeRoots>
+					<verbose>true</verbose>
+					<rulesets>
+						<ruleset>${project.basedir}/../pmd-custom.xml</ruleset>
+					</rulesets>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+							<goal>cpd-check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- programming style analysis -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<configLocation>${project.basedir}/../checkstyle-custom.xml</configLocation>
+					<sourceDirectories>
+						<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+					</sourceDirectories>
+					<excludes>**/*_Raw.java</excludes>
+				</configuration>
+			</plugin>
 
 		</plugins>
 	</build>

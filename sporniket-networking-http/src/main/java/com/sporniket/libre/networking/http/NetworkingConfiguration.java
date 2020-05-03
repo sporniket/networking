@@ -46,22 +46,22 @@ public class NetworkingConfiguration
 	/**
 	 * The connection manager.
 	 */
-	private final HttpClientConnectionManager connectionManager;
+	private final HttpClientConnectionManager myConnectionManager;
 
 	/**
 	 * The defined http proxy.
 	 */
-	private final HttpHost httpProxy;
+	private final HttpHost myHttpProxy;
 
 	/**
 	 * Http proxy host name.
 	 */
-	private final String httpProxyHost;
+	private final String myHttpProxyHost;
 
 	/**
 	 * Http proxy port.
 	 */
-	private final int httpProxyPort;
+	private final int myHttpProxyPort;
 
 	/**
 	 * Default configuration, no proxy.
@@ -97,23 +97,23 @@ public class NetworkingConfiguration
 	public NetworkingConfiguration(String httpProxyHost, int httpProxyPort, HttpClientConnectionManager connectionManager)
 	{
 		super();
-		this.httpProxyHost = httpProxyHost;
-		this.httpProxyPort = httpProxyPort;
+		this.myHttpProxyHost = httpProxyHost;
+		this.myHttpProxyPort = httpProxyPort;
 		if (httpProxyPort > 0 && isNotBlank(httpProxyHost))
 		{
-			httpProxy = new HttpHost(httpProxyHost, httpProxyPort);
+			myHttpProxy = new HttpHost(httpProxyHost, httpProxyPort);
 		}
 		else
 		{
-			httpProxy = null;
+			myHttpProxy = null;
 		}
 		if (null != connectionManager)
 		{
-			this.connectionManager = connectionManager;
+			this.myConnectionManager = connectionManager;
 		}
 		else
 		{
-			this.connectionManager = new PoolingHttpClientConnectionManager();
+			this.myConnectionManager = new PoolingHttpClientConnectionManager();
 		}
 	}
 
@@ -124,7 +124,7 @@ public class NetworkingConfiguration
 	 */
 	public HttpClientConnectionManager getConnectionManager()
 	{
-		return connectionManager;
+		return myConnectionManager;
 	}
 
 	/**
@@ -134,7 +134,7 @@ public class NetworkingConfiguration
 	 */
 	public HttpHost getHttpProxy()
 	{
-		return httpProxy;
+		return myHttpProxy;
 	}
 
 	/**
@@ -144,7 +144,7 @@ public class NetworkingConfiguration
 	 */
 	public String getHttpProxyHost()
 	{
-		return httpProxyHost;
+		return myHttpProxyHost;
 	}
 
 	/**
@@ -154,7 +154,7 @@ public class NetworkingConfiguration
 	 */
 	public int getHttpProxyPort()
 	{
-		return httpProxyPort;
+		return myHttpProxyPort;
 	}
 
 	/**
@@ -162,6 +162,6 @@ public class NetworkingConfiguration
 	 */
 	public boolean isHttpProxyDefined()
 	{
-		return null != httpProxy;
+		return null != myHttpProxy;
 	}
 }

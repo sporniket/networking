@@ -53,14 +53,14 @@ class JsonHelper
 
 	static
 	{
-		ObjectMapper mapper = new ObjectMapper();
+		ObjectMapper _mapper = new ObjectMapper();
 
 		// Configure mapper
-		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		mapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
-		mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
-		mapper.setDefaultPropertyInclusion(Include.NON_NULL);
-		DEFAULT_MAPPER = mapper;
+		_mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		_mapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
+		_mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+		_mapper.setDefaultPropertyInclusion(Include.NON_NULL);
+		DEFAULT_MAPPER = _mapper;
 	}
 
 	static String jsonFrom(Object object) throws IOException

@@ -38,57 +38,57 @@ public class ResponseHandlingException extends NetworkingException
 {
 	private static final long serialVersionUID = -2151046325538043889L;
 
-	private final String body;
+	private final String myBody;
 
-	private final Header[] headers;
+	private final Header[] myHeaders;
 
-	private final StatusLine statusLine;
+	private final StatusLine myStatusLine;
 
 	public ResponseHandlingException(String body, Header[] headers, StatusLine statusLine)
 	{
 		super();
-		this.body = body;
-		this.headers = headers;
-		this.statusLine = statusLine;
+		this.myBody = body;
+		this.myHeaders = headers;
+		this.myStatusLine = statusLine;
 	}
 
 	public ResponseHandlingException(String message, String body, Header[] headers, StatusLine statusLine)
 	{
 		super(message);
-		this.body = body;
-		this.headers = headers;
-		this.statusLine = statusLine;
+		this.myBody = body;
+		this.myHeaders = headers;
+		this.myStatusLine = statusLine;
 	}
 
 	public ResponseHandlingException(String message, Throwable cause, String body, Header[] headers, StatusLine statusLine)
 	{
 		super(message, cause);
-		this.body = body;
-		this.headers = headers;
-		this.statusLine = statusLine;
+		this.myBody = body;
+		this.myHeaders = headers;
+		this.myStatusLine = statusLine;
 	}
 
 	public ResponseHandlingException(Throwable cause, String body, Header[] headers, StatusLine statusLine)
 	{
 		super(cause);
-		this.body = body;
-		this.headers = headers;
-		this.statusLine = statusLine;
+		this.myBody = body;
+		this.myHeaders = headers;
+		this.myStatusLine = statusLine;
 	}
 
 	public String getBody()
 	{
-		return body;
+		return myBody;
 	}
 
 	public Header[] getHeaders()
 	{
-		return headers;
+		return myHeaders;
 	}
 
 	public StatusLine getStatusLine()
 	{
-		return statusLine;
+		return myStatusLine;
 	}
 
 }
