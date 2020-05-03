@@ -1,0 +1,158 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.sporniket.networking</groupId>
+		<artifactId>sporniket-networking</artifactId>
+		<version>20.04.00-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>sporniket-networking-http</artifactId>
+	<packaging>jar</packaging>
+
+	<name>sporniket-networking-http</name>
+	<description>Utilities to addresse http services</description>
+	<url>${url.base}/blob/master/${project.artifactId}</url>
+
+	<dependencies>
+		<!-- ===INTERNAL DEPENDENCIES -->
+
+		<!-- ===EXTERNAL DEPENDENCIES (non test) -->
+		<!-- java stuff -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<!-- Apache commons and friends -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>1.8</version>
+		</dependency>
+
+		<!-- Apache http client -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>fluent-hc</artifactId>
+			<version>4.5.12</version>
+		</dependency>
+
+		<!-- Jackson -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.10.2</version>
+		</dependency>
+
+		<!-- ===TEST DEPENDENCIES -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.6.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sporniket.testing</groupId>
+			<artifactId>sporniket-testing-utils</artifactId>
+			<version>20.04.02</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- bdd assertions -->
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.15.0</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- wiremock -->
+		<dependency>
+			<groupId>com.github.tomakehurst</groupId>
+			<artifactId>wiremock</artifactId>
+			<version>2.26.3</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<!-- Version of Java supported -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${version.maven-compiler-plugin}</version>
+				<configuration>
+					<source>${version.jdk}</source>
+					<target>${version.jdk}</target>
+				</configuration>
+			</plugin>
+			<!-- === code generation using the doclets === -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${version.maven-javadoc-plugin}</version>
+				<executions>
+					<execution>
+						<id>expandJavabeans</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>javadoc-no-fork</goal>
+						</goals>
+						<configuration>
+							<doclet>com.sporniket.libre.javabeans.doclet.ExpanderDoclet</doclet>
+							<docletArtifact>
+								<groupId>com.sporniket.javabeans</groupId>
+								<artifactId>sporniket-javabeans-doclet</artifactId>
+								<version>20.04.00</version>
+							</docletArtifact>
+							<additionalOptions>
+								<additionalOption>-d</additionalOption>
+								<additionalOption>${project.build.directory}/generated-classes/javabeans</additionalOption>
+								<additionalOption>-beanFieldPrefix</additionalOption>
+								<additionalOption>my</additionalOption>
+								<additionalOption>-pojoSuffix</additionalOption>
+								<additionalOption>_Raw</additionalOption>
+							</additionalOptions>
+							<show>private</show>
+							<sourceFileIncludes>
+								<sourceFileIncludes>com\/sporniket\/libre\/networking\/http\/\*.java</sourceFileIncludes>
+							</sourceFileIncludes>
+							<useStandardDocletOptions>false</useStandardDocletOptions>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- === add generated Javabeans as source folder, not generated pojos 
+				=== -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${project.build.directory}/generated-classes/javabeans</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+	<distributionManagement>
+		<site>
+			<id>localMvnSite-${project.artifactId}</id>
+			<name>Sporniket Java Core Library - ${project.name}</name>
+			<url>${url.base.site.deploy}/${project.parent.artifactId}/${project.version}/module/${project.artifactId}</url>
+		</site>
+	</distributionManagement>
+</project>
