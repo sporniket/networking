@@ -21,6 +21,9 @@
 		<version.maven-checkstyle-plugin.checkstyle-runtime>8.32</version.maven-checkstyle-plugin.checkstyle-runtime> <!-- required to use recent checkstyle -->
 		<version.maven-pmd-plugin>3.6</version.maven-pmd-plugin>
 		<version.maven-release-plugin>2.5.2</version.maven-release-plugin>
+		
+		<!-- sporniket plugins versions -->
+        <version.sporniket-javabeans-doclet>20.04.00</version.sporniket-javabeans-doclet>
 	</properties>
 
 	<name>sporniket-networking</name>

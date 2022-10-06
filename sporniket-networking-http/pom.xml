@@ -116,6 +116,7 @@
 							<show>private</show>
 							<sourceFileIncludes>
 								<sourceFileIncludes>com\/sporniket\/libre\/networking\/http\/\*.java</sourceFileIncludes>
+								<sourceFileIncludes>com\/sporniket\/libre\/networking\/http\/restcallabstraction\/\*.java</sourceFileIncludes>
 							</sourceFileIncludes>
 							<useStandardDocletOptions>false</useStandardDocletOptions>
 						</configuration>
