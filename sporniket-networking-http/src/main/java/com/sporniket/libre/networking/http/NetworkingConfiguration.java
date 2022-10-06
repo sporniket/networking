@@ -13,7 +13,7 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
  * Stores the configuration for networking, like a proxy setting ; only unauthentified proxies are supported.
  *
  * <p>
- * &copy; Copyright 2020 David Sporn
+ * &copy; Copyright 2020-2022 David Sporn
  * </p>
  * <hr>
  * 

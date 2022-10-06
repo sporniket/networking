@@ -7,7 +7,7 @@ import org.apache.http.StatusLine;
  * Thrown when there is a problem while handling the response, gathering the http response body, status and headers.
  *
  * <p>
- * &copy; Copyright 2020 David Sporn
+ * &copy; Copyright 2020-2022 David Sporn
  * </p>
  * <hr>
  * 

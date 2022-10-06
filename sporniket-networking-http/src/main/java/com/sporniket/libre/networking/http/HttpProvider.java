@@ -17,7 +17,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
  * Helper to use http calls ; for authenticated calls, only basic authentication is supported.
  *
  * <p>
- * &copy; Copyright 2020 David Sporn
+ * &copy; Copyright 2020-2022 David Sporn
  * </p>
  * <hr>
  * 

@@ -4,7 +4,7 @@ package com.sporniket.libre.networking.http;
  * When a problem occured when parsing some json representation, or so it should have been.
  *
  * <p>
- * &copy; Copyright 2020 David Sporn
+ * &copy; Copyright 2020-2022 David Sporn
  * </p>
  * <hr>
  * 

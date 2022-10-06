@@ -9,7 +9,7 @@ import java.io.IOException;
  * Base exception of this api.
  *
  * <p>
- * &copy; Copyright 2020 David Sporn
+ * &copy; Copyright 2020-2022 David Sporn
  * </p>
  * <hr>
  * 

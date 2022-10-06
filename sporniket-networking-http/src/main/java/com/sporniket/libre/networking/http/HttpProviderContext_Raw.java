@@ -10,7 +10,7 @@ import org.apache.http.auth.Credentials;
  * Some contextual data to perform a request.
  *
  * <p>
- * &copy; Copyright 2020 David Sporn
+ * &copy; Copyright 2020-2022 David Sporn
  * </p>
  * <hr>
  * 

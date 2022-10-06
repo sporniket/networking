@@ -3,7 +3,7 @@ package com.sporniket.libre.networking.http;
 /**
  * A semantic enum for designating http status code groups.
  * <p>
- * &copy; Copyright 2020 David Sporn
+ * &copy; Copyright 2020-2022 David Sporn
  * </p>
  * <hr>
  * 

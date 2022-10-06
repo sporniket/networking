@@ -26,7 +26,7 @@ import com.sporniket.libre.networking.http.RestApiResponse;
  * Test suite for the rest api helper.
  *
  * <p>
- * &copy; Copyright 2020 David Sporn
+ * &copy; Copyright 2020-2022 David Sporn
  * </p>
  * <hr>
  * 

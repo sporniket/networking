@@ -7,7 +7,7 @@ import org.apache.http.StatusLine;
  * Wrap a response from a rest api along with the return headers and the status line.
  *
  * <p>
- * &copy; Copyright 2020 David Sporn
+ * &copy; Copyright 2020-2022 David Sporn
  * </p>
  * <hr>
  * 

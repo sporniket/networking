@@ -32,7 +32,7 @@ import com.sporniket.libre.networking.http.ResponseHandlingException;
  * Test suite for the general use of the lib.
  *
  * <p>
- * &copy; Copyright 2020 David Sporn
+ * &copy; Copyright 2020-2022 David Sporn
  * </p>
  * <hr>
  * 

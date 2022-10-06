@@ -7,7 +7,7 @@ import org.apache.http.StatusLine;
  * Thrown by the default handler of the rest api helper.
  *
  * <p>
- * &copy; Copyright 2020 David Sporn
+ * &copy; Copyright 2020-2022 David Sporn
  * </p>
  * <hr>
  * 

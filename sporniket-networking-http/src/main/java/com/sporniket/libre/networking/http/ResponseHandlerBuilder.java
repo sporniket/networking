@@ -26,7 +26,7 @@ import org.apache.http.client.ResponseHandler;
  * handler.
  *
  * <p>
- * &copy; Copyright 2020 David Sporn
+ * &copy; Copyright 2020-2022 David Sporn
  * </p>
  * <hr>
  * 
