@@ -31,7 +31,7 @@ import java.util.Map ;
  * <hr>
  * 
  * @author David SPORN
- * @version 20.04.00
+ * @version 22.10.00
  * @since 22.10.00
  */
 class RestResponse_Raw {

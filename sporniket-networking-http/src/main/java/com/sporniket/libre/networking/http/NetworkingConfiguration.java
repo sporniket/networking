@@ -37,7 +37,7 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
  * <hr>
  * 
  * @author David SPORN
- * @version 20.04.00
+ * @version 22.10.00
  * @since 20.04.00
  */
 public class NetworkingConfiguration

@@ -34,7 +34,7 @@ import org.apache.http.auth.Credentials;
  * <hr>
  * 
  * @author David SPORN
- * @version 20.04.00
+ * @version 22.10.00
  * @since 20.04.00
  */
 class HttpProviderContext_Raw
