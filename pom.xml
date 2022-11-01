@@ -4,7 +4,7 @@
 	<groupId>com.sporniket.networking</groupId>
 	<artifactId>sporniket-networking</artifactId>
 	<packaging>pom</packaging>
-	<version>22.11.00-SNAPSHOT</version>
+	<version>22.11.00</version>
 
 	<properties>
 		<url.base>https://github.com/sporniket/networking</url.base>
@@ -185,7 +185,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/sporniket/networking.git</connection>
 		<url>https://github.com/sporniket/networking</url>
-		<tag>HEAD</tag>
+		<tag>v22.11.00</tag>
 	</scm>
 	<issueManagement>
 		<system>GitHub.com</system>
