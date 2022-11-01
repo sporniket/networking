@@ -33,7 +33,7 @@ import java.io.IOException;
  * <hr>
  * 
  * @author David SPORN
- * @version 22.10.00
+ * @version 22.11.00
  * @since 20.04.00
  */
 public class NetworkingException extends IOException
