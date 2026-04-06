@@ -31,6 +31,7 @@
 	<url>${url.base}/blob/master/${project.artifactId}</url>
 
 	<modules>
+		<module>./sporniket-networking-core</module>
 		<module>./sporniket-networking-http</module>
 	</modules>
 	<build>
